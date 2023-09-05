@@ -1,4 +1,6 @@
-# YOU SHOULD HAVE A OPENAPI KEY AND LOAD THE OPEN AI MODEL AT fsj_llm.py
+# Befor you run
+
+*YOU SHOULD HAVE A OPENAPI KEY AND LOAD THE OPEN AI MODEL AT fsj_llm.py*
 
 then run main_process.py
 
