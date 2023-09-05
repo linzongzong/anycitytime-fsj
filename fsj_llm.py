@@ -41,7 +41,6 @@ def market_initial_generate(value):
     output={}
     for idx,r in enumerate(res.split(',')):
         output[r]=str(idx+1)
-    print(output)
     return output
 
 def background_generate(value):
@@ -84,18 +83,16 @@ def model_story_generate(year,city,market,item,num,price,op):
     elif op=='buy':
         text_value="在{year}年{city}{market}购买{num}个{item},原有买入价是{price}\nA:".format(year=year,city=city,market=market,item=item,num=num,price=price)
     res='无法'
-    print('story:',res)
     out_price=price
     count=0
     while ('无法' in res) and count<4:
-        msg = HumanMessage(content=text+text_value)
-        res=model(messages=[msg]).content
         try:
+            msg = HumanMessage(content=text+text_value)
+            res=model(messages=[msg]).content
             out_price=int(re.findall('(\d+)',res)[-1])
         except:
             res='无法'
             count+=1
-    print(res)
     if int(out_price)==int(price):
         if op=='buy':
             action='购入'
